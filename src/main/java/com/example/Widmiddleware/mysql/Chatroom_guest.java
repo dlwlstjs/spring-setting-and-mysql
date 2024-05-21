@@ -1,8 +1,6 @@
 package com.example.Widmiddleware.mysql;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,5 +12,7 @@ public class Chatroom_guest {
     @Id
     private String chat_id;
     private int email;
-    private String chatroom_id;
+    @ManyToOne
+    @JoinColumn(name = "chatroom_id", nullable = false, columnDefinition = "chatroom_id")
+    Chatroom chatroom_id;
 }

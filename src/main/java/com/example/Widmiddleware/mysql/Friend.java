@@ -1,8 +1,6 @@
 package com.example.Widmiddleware.mysql;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -13,7 +11,12 @@ import lombok.Setter;
 public class Friend {
     @Id
     private int request_id;
-    private String email;
-    private String friend_email;
+    @ManyToOne
+    @JoinColumns({
+            @JoinColumn(name = "email"),
+            @JoinColumn(name = "enauk")
+    })
+    Users email;
+    Users friend_email;
     private Status status;
 }

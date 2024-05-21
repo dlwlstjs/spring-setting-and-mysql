@@ -1,9 +1,6 @@
 package com.example.Widmiddleware.mysql;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -13,7 +10,9 @@ import lombok.Setter;
 @Table(name = "Chatroom")
 public class Chatroom {
     @Id
-    private int chatroom_id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "chatroom_id", nullable = false, columnDefinition = "int")
+    private int chatroom_id; //외래키(chat, chatroom_id)
     private String email;
     @Column(length = 50, nullable = false)
     private String chatroom_title;

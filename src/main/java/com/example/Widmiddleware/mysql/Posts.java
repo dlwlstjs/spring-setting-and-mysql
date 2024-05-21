@@ -12,7 +12,9 @@ import java.time.LocalDate;
 @Table(name = "Posts")
 public class Posts {
     @Id
-    private int post_id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "post_id", nullable = false, columnDefinition = "int")
+    private int post_id; //외래키(comment, likes)
     private String email;
     @Column(length = 50, nullable = false)
     private String post_title;

@@ -11,8 +11,9 @@ import java.time.LocalDate;
 @Setter
 @Table(name = "Posts")
 public class Posts {
-    @Id
-    private int post_id;
+    @Id @GeneratedValue
+    @Column(name = "post_id", nullable = false, columnDefinition = "int")
+    private int post_id; //외래키(comment, likes)
     private String email;
     @Column(length = 50, nullable = false)
     private String post_title;

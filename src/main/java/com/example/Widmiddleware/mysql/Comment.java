@@ -1,9 +1,6 @@
 package com.example.Widmiddleware.mysql;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -13,9 +10,11 @@ import java.util.Date;
 @Setter
 @Table(name = "Comment")
 public class Comment {
-    @Id
+    @Id @GeneratedValue
     private int Comment_id;
-    private int post_id;
+    @ManyToOne
+    @JoinColumn(name = "post_id", nullable = false, columnDefinition = "int")
+    Posts post_id;
     private String email;
     @Column(length = 300)
     private String comment;

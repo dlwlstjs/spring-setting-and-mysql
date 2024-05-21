@@ -1,8 +1,6 @@
 package com.example.Widmiddleware.mysql;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,8 +9,10 @@ import lombok.Setter;
 @Setter
 @Table(name = "Likes")
 public class Likes {
-    @Id
+    @Id @GeneratedValue
     private int request_id;
-    private int post_id;
+    @ManyToOne
+    @JoinColumn(name = "post_id", nullable = false, columnDefinition = "int")
+    Posts post_id;
     private String email;
 }

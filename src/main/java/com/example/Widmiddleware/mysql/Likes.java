@@ -9,7 +9,7 @@ import lombok.Setter;
 @Setter
 @Table(name = "Likes")
 public class Likes {
-    @Id
+    @Id @GeneratedValue
     private int request_id;
     @ManyToOne
     @JoinColumn(name = "post_id", nullable = false, columnDefinition = "int")

@@ -11,10 +11,9 @@ import java.time.LocalDate;
 @Setter
 @Table(name = "Users")
 public class Users {
-    @Id
+    @Id @GeneratedValue
     @Column(length = 320, nullable = false, columnDefinition = "String")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String email; //외래키 연결(friend, chatroom, post, comment, email)
+    private String email; //외래키 연결(friend, chatroom, post, comment)
     @Column(length = 20, nullable = false)
     private String nickname;
     @Column(length = 30, nullable = false)

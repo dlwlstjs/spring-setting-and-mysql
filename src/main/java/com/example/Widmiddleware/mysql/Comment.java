@@ -10,7 +10,7 @@ import java.util.Date;
 @Setter
 @Table(name = "Comment")
 public class Comment {
-    @Id
+    @Id @GeneratedValue
     private int Comment_id;
     @ManyToOne
     @JoinColumn(name = "post_id", nullable = false, columnDefinition = "int")

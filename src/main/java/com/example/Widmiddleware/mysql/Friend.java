@@ -9,14 +9,13 @@ import lombok.Setter;
 @Entity
 @Table(name = "Friend")
 public class Friend {
-    @Id
+    @Id @GeneratedValue
     private int request_id;
     @ManyToOne
-    @JoinColumns({
-            @JoinColumn(name = "email"),
-            @JoinColumn(name = "enauk")
-    })
+    @JoinColumn(name = "email", nullable = false)
     Users email;
+    @ManyToOne
+    @JoinColumn(name = "friend_email", nullable = false)
     Users friend_email;
     private Status status;
 }
